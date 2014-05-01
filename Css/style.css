@@ -1,0 +1,9 @@
+.form {
+    top: 200px;
+    left: 200px;
+    position: fixed;
+}
+
+p {
+    color: blue;
+}
