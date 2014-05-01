@@ -95,8 +95,8 @@
             <h1>Le super Chat temps réel !</h1>
             <div id="login">
                 <form action="" id="loginform">
-                    <input type="username" class="form-control" placeholder="Nom d'utilisateur" required="" autofocus="" autocomplete="off">
-                    <input type="mail" class="form-control" placeholder="Email" required="" autocomplete="off">
+                    <input type="username" class="form-control" placeholder="Nom d'utilisateur" required="" autofocus="" autocomplete="off" id="username">
+                    <input type="mail" class="form-control" placeholder="Email" required="" autocomplete="off" id="mail">
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
                 </form>
             </div>
@@ -111,14 +111,14 @@
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <script src="/socket.io/socket.io.js"></script>
         <script>
-            var socket = io.connect('http://klaoude.kd.io:8080');
+            var socket = io.connect('klaoude.kd.io:8080');
             
             $('#loginform').submit(function(event){
                 event.preventDefault();
                 socket.emit('login', {
                     username : $('#username').val(),
                     mail : $('#mail').val()
-                })
+                });
             });
         </script>
     </body>
