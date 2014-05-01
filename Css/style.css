@@ -1,9 +1,99 @@
-.form {
-    top: 200px;
-    left: 200px;
+#login {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
     position: fixed;
+    top: 0px;
+    left: 0px;
 }
 
-p {
-    color: blue;
+#loginform {
+    width: 20%;
+    margin: auto;
+    position: fixed;
+    top: 25%;
+    left: 40%;
+    min-width: 200px;
+    color: whitesmoke;
+}
+
+#loginform input {
+    margin-bottom: 10px;
+}
+
+#users div.user {
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin: 2px;
+}
+
+#users div.user div.cursorblock {
+    position: relative;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    visibility: hidden;
+}
+
+#users div.user:hover div.cursorblock {
+    visibility: visible;
+}
+
+#users div.user p {
+    position: relative;
+    top: 50px;
+    left: -30px;
+    width: 110px;
+    text-align: center;
+}
+
+form#form {
+    min-width: 400px;
+    max-width: 800px;
+    margin: 10px auto 10px auto;
+    display: block;
+    text-align: center;
+}
+
+div#messages {
+    width: 800px;
+    margin: auto;
+}
+
+div.message img {
+    float: left;
+    margin: 10px;
+}
+
+div.message {
+    border-bottom: 1px solid grey;
+    height: 70px;
+    overflow: hidden;
+}
+
+div.message div.info {
+    width: 670px;
+    margin-top: 5px;
+}
+
+div.message img,
+div.message div.info {
+    float: left;
+}
+
+div.message div.info h4 {
+    margin: 0px;
+}
+
+div.message div.info p {
+    vertical-align: middle;
+}
+
+div.message span.date {
+    float: right;
+    height: 100px;
+    vertical-align: middle;
+    line-height: 40px;
+    margin: 10px;
 }
