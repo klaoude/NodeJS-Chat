@@ -19,6 +19,10 @@ app.get('/js/mus', function(req, res){
    res.sendfile(__dirname + '/js/mustache.js'); 
 });
 
+app.get('/js/buz', function(req, res){
+   res.sendfile(__dirname + '/js/buzz.js'); 
+});
+
 var users = {};
 var messages = [];
 var histori = 10;
@@ -33,17 +37,22 @@ io.sockets.on('connection', function(socket){
     for(var j in messages) {
         socket.emit('newmsg', messages[j]);
     }
-
     
     socket.on('newmsg', function(message){
-        message.user = me;
-        date = new Date();
-        message.h = date.getHours();
-        message.m = date.getMinutes();
-        messages.push(message);
-        if(messages.length > histori)
-            messages.shift();
-        io.sockets.emit('newmsg', message);
+        if(message.message.length >= 1 && message.message.length < 150) {
+            message.user = me;
+            date = new Date();
+            message.h = date.getHours();
+            message.m = date.getMinutes();
+            if(message.m < 10)
+                message.m = "0" + date.getMinutes();
+            messages.push(message);
+            if(messages.length > histori)
+                messages.shift();
+            io.sockets.emit('newmsg', message);
+        } else {
+            console.log(message.message.length);
+        }
     });
     
     socket.on('login', function(user){
@@ -53,6 +62,7 @@ io.sockets.on('connection', function(socket){
         socket.emit('logged');
         users[me.id] = me;
         io.sockets.emit('newusr', me);
+        io.sockets.emit('conmsg', me);
     });
     
     socket.on('disconnect', function() {

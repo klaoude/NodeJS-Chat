@@ -21,7 +21,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Brand</a>
+                        <a class="navbar-brand" href="#">Klaoude</a>
                     </div>
                 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -69,13 +69,23 @@
         </nav>
         
         <div class="container" >
-            <div id="users"></div>
+            <!-- template mustache -->
+            <div id="users">
+                <div id="usrtpl" style="display:none;">
+                    <div class="user" id="user_{{{id}}}">
+                        <img src="{{{avatar}}}">
+                        <div class="cursorblock">
+                            <p>{{username}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="clearfix"></div>
             <h1>Le super Chat temps réel !</h1>
             <div id="login">
                 <form action="" id="loginform">
                     <input type="username" class="form-control" placeholder="Nom d'utilisateur" required="" autofocus="" autocomplete="off" id="username">
-                    <input type="mail" class="form-control" placeholder="Email" required="" autocomplete="off" id="mail">
+                    <input type="mail" class="form-control" placeholder="Email (pour un avatar gravatar !!!)" required="" autocomplete="off" id="mail">
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
                 </form>
             </div>
@@ -89,7 +99,7 @@
         <!-- Template Mustache.js -->
         <div id="messages">
             <div class="message" id="msgtpl" style="display:none;">
-                <img src="{{{user.avatar}}}">
+                <img src="{{user.avatar}}">
                 <div class="info">
                     <h4>{{user.username}}</h4>
                     <p>{{message}}</p>
@@ -103,6 +113,7 @@
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <script src="/js/mus"></script>
         <script src="/socket.io/socket.io.js"></script>
+        <script src="js/buz"></script>
         <script src="/js/cli"></script>
     </body>
 </html>
